@@ -52,13 +52,16 @@ WHERE
 The following SQL queries were developed to answer specific business questions:
 
 -- Q.1 Write a SQL query to retrieve all columns for sales made on '2022-11-05
+
 select * from retail where sale_date = "2022-11-05";
 
 -- Q.2 Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 3 in the month of Nov-2022
+
 select * from retail where category = "clothing" and quantiy > 3 and month (sale_date)= 11 and year (sale_date)= 2022;
 
 
 -- Q.3 Write a SQL query to calculate the total sales (total_sale) for each category.
+
 select category,sum(total_sale) as net_sale,count(*) as total_order from retail group by 1;
 
 -- Q.4 Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.
