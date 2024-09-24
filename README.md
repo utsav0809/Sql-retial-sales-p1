@@ -65,12 +65,15 @@ select * from retail where category = "clothing" and quantiy > 3 and month (sale
 select category,sum(total_sale) as net_sale,count(*) as total_order from retail group by 1;
 
 -- Q.4 Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.
+
 select category,round(avg(age)),count(*) from retail where category = "beauty"  ; 
 
 -- Q.5 Write a SQL query to find all transactions where the total_sale is greater than 1000.
+
 select * from retail where total_sale > 1000 ;
 
 -- Q.6 Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category.
+
 select category,gender ,count(*)from retail group by 1,2 order by 1; 
 
 -- Q.7 Write a SQL query to find the top 5 customers based on the highest total sales 
@@ -78,9 +81,11 @@ select category,gender ,count(*)from retail group by 1,2 order by 1;
 select customer_id , sum(total_sale) from retail group by 1 order by 2 desc limit 5;
 
 -- Q.8 Write a SQL query to find the number of unique customers who purchased items from each category.
+
 select category, count(distinct customer_id) from retail group by 1;
 
 -- Q.9 Write a SQL query to create each shift and number of orders (Example Morning <=12, Afternoon Between 12 & 17, Evening >17)
+
 WITH hourly_sale
 AS
 (
